@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import maksimstarikov.sharedlist.models.entities.Account;
 import maksimstarikov.sharedlist.repositories.AccountRepository;
 import maksimstarikov.sharedlist.services.AccountService;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,6 +21,11 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
+    public Optional<Account> getByLoginWithRoles(String login) {
+        return repository.findWithRolesByLogin(login);
+    }
+
+    @Override
     public boolean isExistByLogin(String login) {
         return repository.existsAccountByLogin(login);
     }
@@ -32,5 +38,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account save(Account account) {
         return repository.save(account);
+    }
+
+    @Override
+    public Account getCurrentAccount() {
+        return (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }

@@ -39,8 +39,9 @@ public class Account implements UserDetails {
 
     private String lastName;
 
+    @Column(name = "role_name")
     @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
-    @CollectionTable(name = "account_role", joinColumns = @JoinColumn(name = "account_id"))
+    @CollectionTable(schema = "main", name = "account_role", joinColumns = @JoinColumn(name = "account_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 

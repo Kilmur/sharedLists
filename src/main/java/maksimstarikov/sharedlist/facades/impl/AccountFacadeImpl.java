@@ -6,10 +6,14 @@ import maksimstarikov.sharedlist.facades.AccountFacade;
 import maksimstarikov.sharedlist.models.dto.in.CheckRegistrationDto;
 import maksimstarikov.sharedlist.models.dto.in.RegistrationDto;
 import maksimstarikov.sharedlist.models.entities.Account;
+import maksimstarikov.sharedlist.models.entities.Role;
 import maksimstarikov.sharedlist.services.AccountService;
 import maksimstarikov.sharedlist.utils.UniqueIdGenerator;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
+import java.util.HashSet;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +41,7 @@ public class AccountFacadeImpl implements AccountFacade {
                 .password(passwordEncoder.encode(dto.getPassword()))
                 .firstName(dto.getFirstName())
                 .lastName(dto.getLastName())
+                .roles(Collections.singleton(Role.ROLE_USER))
                 .build();
         accountService.save(newAccount);
     }
