@@ -38,7 +38,9 @@ public class AccountList {
 
     private String description;
 
+    @NotBlank
     private String color;
 
+    @NotNull
     private Instant created;
 }
