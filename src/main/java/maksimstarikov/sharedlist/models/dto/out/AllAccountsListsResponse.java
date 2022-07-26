@@ -2,11 +2,12 @@ package maksimstarikov.sharedlist.models.dto.out;
 
 import lombok.Value;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
 @Value(staticConstructor = "create")
-public class AccountListsResponse {
+public class AllAccountsListsResponse {
 
     List<AccountListSummary> summaryList;
 
@@ -18,5 +19,7 @@ public class AccountListsResponse {
         String name;
 
         String color;
+
+        Instant created;
     }
 }

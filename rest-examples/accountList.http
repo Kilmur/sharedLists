@@ -3,3 +3,21 @@ Authorization: Bearer <token>
 
 
 ###
+POST http://localhost:8080/api/v1/lists
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Купить в продуктовом",
+  "description": "То что купим в магазине у дома",
+  "color": "#FFDEAD"
+}
+
+###
+POST http://localhost:8080/api/v1/lists
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "name": "Взять на дачу"
+}

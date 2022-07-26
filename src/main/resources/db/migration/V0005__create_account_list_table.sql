@@ -11,4 +11,4 @@ CREATE TABLE account_list (
 );
 
 CREATE UNIQUE INDEX account_list_uuid_uidx on account_list (uuid);
-CREATE UNIQUE INDEX account_list_account_id_uidx on account_list (account_id);
+CREATE INDEX account_list_account_id_idx on account_list (account_id);

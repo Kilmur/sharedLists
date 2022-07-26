@@ -1,8 +1,12 @@
 package maksimstarikov.sharedlist.facades;
 
-import maksimstarikov.sharedlist.models.dto.out.AccountListsResponse;
+import maksimstarikov.sharedlist.models.dto.in.CreateAccountListDto;
+import maksimstarikov.sharedlist.models.dto.out.AccountListResponse;
+import maksimstarikov.sharedlist.models.dto.out.AllAccountsListsResponse;
 
 public interface AccountListFacade {
 
-    AccountListsResponse getAllAccountLists();
+    AllAccountsListsResponse getAllAccountLists();
+
+    AccountListResponse create(CreateAccountListDto dto);
 }

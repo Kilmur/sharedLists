@@ -7,4 +7,6 @@ import java.util.List;
 public interface AccountListService {
 
     List<AccountList> getAllByAccountId(Long accountId);
+
+    AccountList save(AccountList entityForSave);
 }

@@ -1,9 +1,6 @@
 package maksimstarikov.sharedlist.models.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -26,7 +23,7 @@ public class AccountList {
     private Long id;
 
     @NotNull
-    private UUID uuid = UUID.randomUUID();
+    private UUID uuid;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
@@ -43,4 +40,8 @@ public class AccountList {
 
     @NotNull
     private Instant created;
+
+    public static AccountList create(Account account, String name, String description, String color) {
+        return new AccountList(null, UUID.randomUUID(), account, name, description, color, Instant.now());
+    }
 }
