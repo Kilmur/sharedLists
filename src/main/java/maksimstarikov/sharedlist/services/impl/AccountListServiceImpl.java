@@ -7,6 +7,8 @@ import maksimstarikov.sharedlist.services.AccountListService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -22,5 +24,10 @@ public class AccountListServiceImpl implements AccountListService {
     @Override
     public AccountList save(AccountList entityForSave) {
         return repository.save(entityForSave);
+    }
+
+    @Override
+    public Optional<AccountList> getByUuid(UUID uuid) {
+        return repository.findByUuid(uuid);
     }
 }

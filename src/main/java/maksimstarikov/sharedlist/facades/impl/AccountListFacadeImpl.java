@@ -1,8 +1,10 @@
 package maksimstarikov.sharedlist.facades.impl;
 
 import lombok.RequiredArgsConstructor;
+import maksimstarikov.sharedlist.exceptions.AccountListNotFoundException;
 import maksimstarikov.sharedlist.facades.AccountListFacade;
 import maksimstarikov.sharedlist.models.dto.in.CreateAccountListDto;
+import maksimstarikov.sharedlist.models.dto.in.UpdateAccountListDto;
 import maksimstarikov.sharedlist.models.dto.out.AccountListResponse;
 import maksimstarikov.sharedlist.models.dto.out.AllAccountsListsResponse;
 import maksimstarikov.sharedlist.models.entities.Account;
@@ -12,6 +14,7 @@ import maksimstarikov.sharedlist.services.AccountService;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -36,5 +39,25 @@ public class AccountListFacadeImpl implements AccountListFacade {
     public AccountListResponse create(CreateAccountListDto dto) {
         AccountList savedEntity = accountListService.save(conversionService.convert(dto, AccountList.class));
         return conversionService.convert(savedEntity, AccountListResponse.class);
+    }
+
+    @Transactional
+    @Override
+    public AccountListResponse update(UpdateAccountListDto dto) {
+        AccountList entity = accountListService.getByUuid(dto.getId()).orElseThrow(() -> AccountListNotFoundException.byId(dto.getId()));
+        if (dto.getName() != null) {
+            entity.setName(dto.getName());
+        }
+        if (dto.getDescription() != null) {
+            if (dto.getDescription().trim().isEmpty()) {
+                entity.setDescription(null);
+            } else {
+                entity.setDescription(dto.getDescription());
+            }
+        }
+        if (dto.getColor() != null) {
+            entity.setColor(dto.getColor());
+        }
+        return conversionService.convert(entity, AccountListResponse.class);
     }
 }

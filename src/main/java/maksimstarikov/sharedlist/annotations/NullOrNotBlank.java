@@ -1,6 +1,6 @@
 package maksimstarikov.sharedlist.annotations;
 
-import maksimstarikov.sharedlist.annotations.handlers.NameValidator;
+import maksimstarikov.sharedlist.annotations.handlers.NullOrNotBlankValidator;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -11,10 +11,10 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = NameValidator.class)
-public @interface NameOrNull {
+@Constraint(validatedBy = NullOrNotBlankValidator.class)
+public @interface NullOrNotBlank {
 
-    String message() default "Field must be null or like name";
+    String message() default "Field must be null or not blank";
 
     Class<?>[] groups() default {};
 

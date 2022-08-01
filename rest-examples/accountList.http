@@ -21,3 +21,14 @@ Content-Type: application/json
 {
   "name": "Взять на дачу"
 }
+
+
+###
+PUT http://localhost:8080/api/v1/lists
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "id": "39edace1-623f-4205-855b-ec541ab3bf49",
+  "name": "Купить в продуктовом 2"
+}
