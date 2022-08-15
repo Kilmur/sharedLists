@@ -44,7 +44,7 @@ public class AccountListFacadeImpl implements AccountListFacade {
     @Transactional
     @Override
     public AccountListResponse update(UpdateAccountListDto dto) {
-        AccountList entity = accountListService.getByUuid(dto.getId()).orElseThrow(() -> AccountListNotFoundException.byId(dto.getId()));
+        AccountList entity = accountListService.getByUuid(dto.getId()).orElseThrow(() -> AccountListNotFoundException.byUuid(dto.getId()));
         if (dto.getName() != null) {
             entity.setName(dto.getName());
         }

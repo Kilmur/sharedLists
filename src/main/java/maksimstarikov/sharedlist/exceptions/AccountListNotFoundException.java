@@ -8,7 +8,7 @@ public class AccountListNotFoundException extends RuntimeException {
         super(message);
     }
 
-    public static AccountListNotFoundException byId(UUID uuid) {
+    public static AccountListNotFoundException byUuid(UUID uuid) {
         return new AccountListNotFoundException("Not found by id: " + uuid);
     }
 }
