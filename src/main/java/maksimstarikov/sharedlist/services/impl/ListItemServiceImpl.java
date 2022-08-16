@@ -30,4 +30,9 @@ public class ListItemServiceImpl implements ListItemService {
     public Optional<ListItem> getByUuid(UUID uuid) {
         return repository.findByUuid(uuid);
     }
+
+    @Override
+    public void deleteByUuid(UUID uuid) {
+        repository.deleteByUuid(uuid);
+    }
 }

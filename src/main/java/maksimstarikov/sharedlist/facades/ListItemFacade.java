@@ -14,4 +14,6 @@ public interface ListItemFacade {
     ListItemResponse create(CreateListItemDto dto);
 
     ListItemResponse update(UpdateListItemDto dto);
+
+    void deleteByUuid(UUID itemUuid);
 }

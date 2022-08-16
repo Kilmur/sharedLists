@@ -32,4 +32,9 @@ public class ListItemController {
     public ListItemResponse update(@RequestBody @Valid UpdateListItemDto dto) {
         return facade.update(dto);
     }
+
+    @DeleteMapping("by-id/{itemUuid}")
+    public void deleteByUuid(@PathVariable UUID itemUuid) {
+        facade.deleteByUuid(itemUuid);
+    }
 }

@@ -13,4 +13,6 @@ public interface ListItemService {
     ListItem save(ListItem entityForSave);
 
     Optional<ListItem> getByUuid(UUID uuid);
+
+    void deleteByUuid(UUID uuid);
 }

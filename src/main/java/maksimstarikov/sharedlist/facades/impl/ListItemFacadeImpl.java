@@ -54,4 +54,9 @@ public class ListItemFacadeImpl implements ListItemFacade {
         entity.setName(dto.getName());
         return conversionService.convert(entity, ListItemResponse.class);
     }
+
+    @Override
+    public void deleteByUuid(UUID itemUuid) {
+        listItemService.deleteByUuid(itemUuid);
+    }
 }
