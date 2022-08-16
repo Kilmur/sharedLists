@@ -1,2 +1,23 @@
 GET http://localhost:8080/api/v1/list-items/by-list-id/39edace1-623f-4205-855b-ec541ab3bf49
 Authorization: Bearer <token>
+
+
+###
+POST http://localhost:8080/api/v1/list-items
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "listId": "39edace1-623f-4205-855b-ec541ab3bf49",
+  "name": "Картофель"
+}
+
+###
+PUT http://localhost:8080/api/v1/list-items
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "listItemId": "e8f782b6-6f35-4cd7-8dc9-3923b326aa37",
+  "name": "Батат"
+}
