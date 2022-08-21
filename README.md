@@ -1,2 +1,2 @@
 # shared lists
-Just for fun
+Easy backend for training creating android client.
