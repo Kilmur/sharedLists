@@ -9,6 +9,7 @@ import maksimstarikov.sharedlist.models.dto.out.AllAccountsListsResponse;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("v1/lists")
@@ -30,5 +31,10 @@ public class AccountListController {
     @PutMapping
     public AccountListResponse update(@RequestBody @Valid UpdateAccountListDto dto) {
         return facade.update(dto);
+    }
+
+    @DeleteMapping("by-id/{listUuid}")
+    public void deleteByUuid(@PathVariable UUID listUuid) {
+        facade.deleteByUuid(listUuid);
     }
 }

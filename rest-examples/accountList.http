@@ -32,3 +32,7 @@ Content-Type: application/json
   "id": "39edace1-623f-4205-855b-ec541ab3bf49",
   "name": "Купить в продуктовом 2"
 }
+
+###
+DELETE http://localhost:8080/api/v1/lists/by-id/e5e73bed-92ca-4149-a62a-79a5d51f0df1
+Authorization: Bearer <token>

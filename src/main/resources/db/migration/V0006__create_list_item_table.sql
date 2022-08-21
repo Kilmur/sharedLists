@@ -3,7 +3,7 @@ SET SEARCH_PATH TO main;
 CREATE TABLE list_item (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   uuid UUID NOT NULL,
-  account_list_id BIGINT NOT NULL,
+  account_list_id BIGINT NOT NULL REFERENCES account_list ON DELETE CASCADE,
   name TEXT NOT NULL,
   created TIMESTAMP NOT NULL
 );

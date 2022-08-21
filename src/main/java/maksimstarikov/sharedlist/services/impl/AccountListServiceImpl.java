@@ -30,4 +30,9 @@ public class AccountListServiceImpl implements AccountListService {
     public Optional<AccountList> getByUuid(UUID uuid) {
         return repository.findByUuid(uuid);
     }
+
+    @Override
+    public void deleteByUuid(UUID uuid) {
+        repository.deleteByUuid(uuid);
+    }
 }

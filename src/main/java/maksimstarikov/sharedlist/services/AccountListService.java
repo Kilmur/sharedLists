@@ -13,4 +13,6 @@ public interface AccountListService {
     AccountList save(AccountList entityForSave);
 
     Optional<AccountList> getByUuid(UUID uuid);
+
+    void deleteByUuid(UUID uuid);
 }

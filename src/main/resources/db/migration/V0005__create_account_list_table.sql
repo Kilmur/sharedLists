@@ -3,7 +3,7 @@ SET SEARCH_PATH TO main;
 CREATE TABLE account_list (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   uuid UUID NOT NULL,
-  account_id BIGINT NOT NULL,
+  account_id BIGINT NOT NULL REFERENCES account,
   name TEXT NOT NULL,
   description TEXT,
   color TEXT NOT NULL,
