@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+  postgres:
+    image: "pg_with_sharedlist"
+    environment:
+      POSTGRES_DB: "sharedlist"
+      POSTGRES_USER: "shl"
+      POSTGRES_PASSWORD: "123"
+    ports:
+      - "5432:5432"
